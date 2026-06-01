@@ -1,0 +1,63 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+#
+# Laboratorio del curso: red aislada 192.168.56.0/24 (VirtualBox host-only).
+# Windows Server 2022 (consola Endpoint Central) + Windows 10 (agente).
+#
+# Requisitos: VirtualBox, Vagrant, plugin vagrant-vbguest, ~40–60 GB disco, RAM 16 GB+ recomendada.
+
+Vagrant.configure("2") do |config|
+  config.vagrant.plugins = ["vagrant-vbguest"]
+
+  if Vagrant.has_plugin?("vagrant-vbguest")
+    config.vbguest.auto_update = true
+    config.vbguest.no_install = false
+  end
+
+  config.vm.synced_folder ".", "/vagrant", disabled: true
+
+  config.winrm.retry_limit = 40
+  config.winrm.retry_delay = 15
+
+  config.vm.define "ec-server", primary: true do |srv|
+    srv.vm.box = "gusztavvargadr/windows-server-2022-standard"
+    srv.vm.hostname = "ec-server"
+    srv.vm.network "private_network", ip: "192.168.56.10"
+    srv.vm.communicator = "winrm"
+
+    srv.vm.provider "virtualbox" do |vb|
+      vb.name = "ec-lab-server"
+      vb.gui = true
+      vb.memory = 6_144
+      vb.cpus = 2
+    end
+  end
+
+  config.vm.define "ec-client1" do |cl|
+    cl.vm.box = "gusztavvargadr/windows-10"
+    cl.vm.hostname = "ec-client1"
+    cl.vm.network "private_network", ip: "192.168.56.11"
+    cl.vm.communicator = "winrm"
+
+    cl.vm.provider "virtualbox" do |vb|
+      vb.name = "ec-lab-client1"
+      vb.gui = true
+      vb.memory = 4_096
+      vb.cpus = 2
+    end
+  end
+
+  # Segundo endpoint (opcional): descomenta si tienes RAM suficiente.
+  # config.vm.define "ec-client2" do |cl|
+  #   cl.vm.box = "gusztavvargadr/windows-10"
+  #   cl.vm.hostname = "ec-client2"
+  #   cl.vm.network "private_network", ip: "192.168.56.12"
+  #   cl.vm.communicator = "winrm"
+  #   cl.vm.provider "virtualbox" do |vb|
+  #     vb.name = "ec-lab-client2"
+  #     vb.gui = true
+  #     vb.memory = 4_096
+  #     vb.cpus = 2
+  #   end
+  # end
+end

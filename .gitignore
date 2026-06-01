@@ -1,0 +1,10 @@
+.DS_Store
+*.swp
+*~
+
+# Contexto interno (no publicar)
+.agents/
+material-formador/
+
+# Tratamiento local del agente (legacy)
+.agent/
