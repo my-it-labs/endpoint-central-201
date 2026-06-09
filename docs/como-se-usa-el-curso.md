@@ -8,13 +8,13 @@ Curso **100 % práctico**: aprendes haciendo en la consola de Endpoint Central. 
 2. Abre el README del módulo (M1, M2…).
 3. Sigue los ejercicios `01-`, `02-`, `03-`… **en orden**.
 4. Ejecuta cada **Paso** en tu consola.
-5. Compara tu pantalla con la **captura de referencia** del ejercicio.
-6. Cierra con **Antes de seguir** (foco + retos) antes del siguiente archivo.
+5. Revisa la **captura de referencia** del ejercicio.
+6. Cierra con **Antes de seguir** (foco + preguntas de cierre) antes del siguiente archivo.
 
 ## Convenciones
 
-- **Un ejercicio, un objetivo.** Cada `NN-nombre.md` termina con retos opcionales para afianzar.
-- **Capturas del material** = referencia visual. Si tu pantalla no coincide, corrige antes de seguir. No hace falta que guardes capturas propias.
+- **Un ejercicio, un objetivo.** Cada `NN-nombre.md` termina con preguntas de cierre para afianzar.
+- **Capturas del material** = referencia visual del paso. No hace falta guardar capturas propias.
 - **Problemas:** [Checklist de incidencias](../manual-alumno/checklist-incidencias-lab.md).
 
 ## Orden de módulos

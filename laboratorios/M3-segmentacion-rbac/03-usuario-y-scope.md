@@ -34,15 +34,22 @@ Email: usa una dirección válida para el SMTP de lab (p. ej. `tecnico1@lab.loca
 
 ![Define Scope](../../capturas/M3/05-add-user-scope.png)
 
-Opciones principales:
+La pantalla hace **dos preguntas** (detalle en [02 — Scope, paso 1](../M3-segmentacion-parque/02-scope-grupos-y-prueba.md)):
+
+| Pregunta en pantalla | Qué marcar en M3-03 (alta de `tecnico1`) |
+|----------------------|------------------------------------------|
+| **Computers to be managed** — ¿qué PCs Windows? | **All Computers** |
+| **Devices to be managed** — ¿qué móviles/tablets MDM? | **All Devices** (en el lab no hay MDM; déjalo así) |
+
+Opciones del bloque **Computers**:
 
 | Scope | Cuándo usarlo |
 |-------|----------------|
-| **All Computers** | Todo el parque (lab: aceptable con pocos equipos) |
-| **Static Unique Group** | Solo un grupo fijo de equipos |
+| **All Computers** | Todo el parque UEM (lab: aceptable con pocos equipos) |
+| **Static Unique Group** | Solo un Custom Group **Computer** Static Unique |
 | **Remote Office** | Solo sedes/oficinas remotas definidas |
 
-Para este ejercicio usa **All Computers** (como en la referencia), salvo que el enunciado de tu entorno pida un scope más restrictivo.
+Para este ejercicio: **Computers → All Computers**, **Devices → All Devices**. Más adelante, en [Segmentación del parque](../M3-segmentacion-parque/02-scope-grupos-y-prueba.md), cambiarás **Computers** a **Static Unique Group → Clientes**; **Devices** sigue en All Devices.
 
 ---
 
@@ -80,10 +87,10 @@ Has unido **rol** (qué puede hacer) y **scope** (sobre qué equipos). Los dos s
 - **Static Unique Group** fija el alcance a un conjunto concreto de máquinas.
 - La alerta **2FA** es recomendación de hardening — en este curso la posponemos, no la ignores en producción.
 
-### Reto (tómate tu tiempo)
+### Preguntas de cierre
 
-1. Repite en voz alta: «El rol `lab-read` permite ___, el scope All Computers limita a ___.» ¿Suena redundante? ¿Por qué hacen falta los dos?
-2. Si mañana solo debe ver `ec-client1`, ¿qué scope elegirías en lugar de All Computers?
+1. ¿Qué permite el rol `lab-read` y qué limita el scope **All Computers**? ¿Por qué hacen falta los dos?
+2. Si un operador solo debe ver `ec-client1`, ¿qué scope elegirías? → Respuesta en [02 — Scope e inventario](../M3-segmentacion-parque/02-scope-grupos-y-prueba.md) (Static Unique Group + `Grupo-Clientes`).
 3. Mira la lista de usuarios: ¿cuántos admins hay? ¿Tiene sentido que todos sean admin en una empresa grande?
 
 → **[M3-04 — Activación y prueba](04-activacion-y-prueba.md)**

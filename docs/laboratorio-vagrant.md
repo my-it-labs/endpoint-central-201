@@ -123,7 +123,11 @@ Set-NetConnectionProfile -InterfaceIndex <id> -NetworkCategory Private   # inter
 New-NetFirewallRule -DisplayName "Lab-EC-8020" -Direction Inbound -Protocol TCP -LocalPort 8020 -RemoteAddress 192.168.56.0/24 -Action Allow
 New-NetFirewallRule -DisplayName "Lab-EC-8383" -Direction Inbound -Protocol TCP -LocalPort 8383 -RemoteAddress 192.168.56.0/24 -Action Allow
 New-NetFirewallRule -DisplayName "Lab-EC-8027" -Direction Inbound -Protocol TCP -LocalPort 8027 -RemoteAddress 192.168.56.0/24 -Action Allow
+New-NetFirewallRule -DisplayName "Lab-EC-8444" -Direction Inbound -Protocol TCP -LocalPort 8444 -RemoteAddress 192.168.56.0/24 -Action Allow
+New-NetFirewallRule -DisplayName "Lab-EC-8443" -Direction Inbound -Protocol TCP -LocalPort 8443 -RemoteAddress 192.168.56.0/24 -Action Allow
 ```
+
+Los puertos **8443/8444** son los de **Tools** (System Manager, remote control, chat). Sin ellos, los enlaces que EC abre desde **Actions → System Manager** pueden quedarse cargando en blanco.
 
 Comprueba desde el cliente:
 

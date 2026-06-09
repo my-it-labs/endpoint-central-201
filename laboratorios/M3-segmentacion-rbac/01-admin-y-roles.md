@@ -76,11 +76,11 @@ Acabas de crear **delegación mínima**: un rol que solo lee inventario e inform
 - Los roles predefinidos (Patch Manager, Technician…) son **plantillas**; en enterprise casi siempre ajustas uno custom.
 - Un rol restrictivo reduce riesgo si la cuenta se compromete o el técnico se equivoca.
 
-### Reto (tómate tu tiempo)
+### Preguntas de cierre
 
 1. Abre un rol predefinido (p. ej. **Technician**) solo para mirar: ¿en qué módulos difiere de tu `lab-read`?
 2. ¿Qué pasaría si dejaras **Admin** en Read en lugar de No Access? ¿Seguiría siendo un rol «de lectura»?
-3. Diseña mentalmente un rol **Auditor**: ¿qué módulos en Read y cuáles en No Access? Coméntalo con un compañero o anótalo en tu cuaderno.
+3. Define un rol **Auditor**: ¿qué módulos en Read y cuáles en No Access?
 
 Sin SMTP configurado no podrás activar usuarios: eso es el siguiente ejercicio.
 

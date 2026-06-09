@@ -8,3 +8,4 @@ material-formador/
 
 # Tratamiento local del agente (legacy)
 .agent/
+_tmp-client-profile/

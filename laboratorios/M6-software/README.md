@@ -11,8 +11,6 @@ Desplegar software de forma controlada:
 - Configurar **policy**, **target**, filtros y exclusiones.
 - Seguir el **estado de ejecución** hasta Success o Failed.
 
-Apoyo: [Mapa de opciones UI](../../docs/mapa-opciones-ui.md)
-
 ---
 
 ## Laboratorios de este módulo

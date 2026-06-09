@@ -81,7 +81,7 @@ Has separado tres capas: **template** (receta), **package** (tu unidad) y **acci
 - **Install — Computer** vs **Install — User** cambia **dónde** queda la app (todo el PC vs usuario concreto).
 - En el siguiente ejercicio configurarás **policy y target** — ahí suelen estar los errores de producción.
 
-### Reto (tómate tu tiempo)
+### Preguntas de cierre
 
 1. Sin desplegar aún, explora otro template del marketplace: ¿qué campos rellena automáticamente respecto a un package manual?
 2. ¿Instalarías un antivirus con **Install — User** o **Install — Computer**? Justifica.

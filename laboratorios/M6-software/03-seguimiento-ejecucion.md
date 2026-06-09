@@ -56,7 +56,7 @@ Desplegar software es **asíncrono**: la consola muestra estados; el agente ejec
 - La consola es la **fuente de verdad del estado**; el cliente confirma el **resultado** (app instalada).
 - Tras instalar, el inventario puede tardar — relaciona con M2 y Asset Scan.
 
-### Reto (tómate tu tiempo)
+### Preguntas de cierre
 
 1. Anota la hora en que pasó de **Yet to Apply** a **In Progress** / **Success** (o cuánto llevaba si sigue en cola).
 2. En `ec-client1`, ¿ves Chrome? Si sí, cruza con **Inventory → Software**; si no, ¿el estado en consola explica el retraso?

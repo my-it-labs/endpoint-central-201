@@ -57,13 +57,13 @@ Has cerrado el círculo M1: consola accesible y endpoints **gestionados**. Todo 
 - **Installed Successfully** no significa «última acción OK»; significa que el **agente está operativo**.
 - `ec-server` también puede aparecer gestionado (el servidor se administra a sí mismo en muchos despliegues).
 
-### Reto (tómate tu tiempo)
+### Preguntas de cierre
 
 1. ¿Cuántos equipos gestionados ves? ¿Coincide con Summary del ejercicio anterior?
 2. Abre el detalle de `ec-client1`: ¿cuándo fue la **última comunicación** con el servidor? ¿Qué pasaría si apagaras la VM cliente?
 3. Si hubiera un equipo en **Waiting for Approval**, ¿sabrías dónde buscar la acción Approve? (Revisa el módulo Agent si no lo ves en tu entorno.)
-4. En pareja o en voz alta: explica en **30 segundos** qué revisarías si un compañero dice «no me sale el cliente en la lista».
+4. ¿Qué revisarías si un compañero dice «no me sale el cliente en la lista»? (agente, aprobación, comunicación, firewall).
 
-Cuando respondas con soltura, cierra M1 y continúa con inventario.
+Continúa con inventario cuando tengas claro el checklist.
 
 → **[M2 — Inventario y organización](../M2-inventario/README.md)**

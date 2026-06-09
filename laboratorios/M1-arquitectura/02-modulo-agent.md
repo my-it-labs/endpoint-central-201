@@ -58,9 +58,9 @@ Si el resumen muestra **0** equipos o errores, **no continúes**: revisa [Checkl
 - El número de **managed computers** debe coincidir con lo que esperas en el lab (normalmente 2).
 - Summary es agregado; el detalle equipo a equipo está en la siguiente pantalla.
 
-### Reto (tómate tu tiempo)
+### Preguntas de cierre
 
-1. Repite mentalmente el flujo: agente instalado en cliente → registro en servidor → aparece en Summary. ¿En qué paso fallaría si el firewall bloquea el puerto?
+1. Recorre el flujo agente instalado en cliente → registro en servidor → aparece en Summary. ¿En qué paso fallaría si el firewall bloquea el puerto?
 2. ¿Hay algún indicador de **error** o **warning** en la pantalla? Si lo hay, léelo antes de seguir (aunque el recuento sea 2).
 3. Sin cambiar nada, busca en el menú Agent si hay otra subsección además de Summary (p. ej. instalación, aprobaciones). Solo mira; no configures.
 

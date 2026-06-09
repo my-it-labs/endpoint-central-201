@@ -47,7 +47,7 @@ Recorre las pestañas disponibles (Summary, Software, Hardware, Actions… segú
 - La ficha del equipo concentra pestañas que en las vistas agregadas (Software/Hardware) viste por otro ángulo.
 - **Last scan** / último escaneo indica frescura del dato — no confundir con «última vez encendido».
 
-### Reto (tómate tu tiempo)
+### Preguntas de cierre
 
 1. En la ficha de `ec-client1`, recorre **todas las pestañas** sin ejecutar nada: ¿cuál te parece más útil para soporte diario? ¿cuál para auditoría?
 2. Compara una pieza de software que viste en **Inventory → Software** con la pestaña Software de la ficha: ¿es la misma información con distinto formato?

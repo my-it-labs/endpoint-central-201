@@ -42,10 +42,15 @@ En lab suele usarse ejecución **inmediata** o en la próxima ventana de manteni
 
 Selecciona el **target** de laboratorio:
 
-- **Domain / Remote Office / Group** según cómo esté organizado tu entorno
-- Asegúrate de incluir **`ec-client1`** y **excluir** el servidor si no quieres instalar Chrome ahí
+- **Custom Group** → **`Grupo-Clientes`** (creado en [Segmentación del parque](../M3-segmentacion-parque/01-grupos-y-segmentacion.md))
 
-Revisa opciones de **Filter** y **Exclude** si aparecen (ver [mapa UI](../../docs/mapa-opciones-ui.md)).
+Si aparecen **Filter** y **Exclude**:
+
+| Opción | Qué es | En la práctica |
+|--------|--------|----------------|
+| **Target** | Población base del despliegue | Custom Group → `Grupo-Clientes` (solo clientes del lab). |
+| **Filter** | Refina *dentro* del target | Ej.: solo PCs con cierto SO o en una OU concreta. |
+| **Exclude** | Excepciones explícitas | Ej.: sacar del despliegue una OU de prueba o un servidor concreto aunque esté en el target. |
 
 ---
 
@@ -72,10 +77,10 @@ Un despliegue enterprise falla más por **target/policy** mal elegidos que por e
 - **Target + filter/exclude** = a quién llega — un error aquí instala en el servidor de producción o en nadie.
 - **Deploy** crea la configuración; la ejecución real la hace el agente después (como con Asset Scan).
 
-### Reto (tómate tu tiempo)
+### Preguntas de cierre
 
-1. Repasa tu target: ¿está **solo** `ec-client1` (o su grupo)? ¿Has excluido `ec-server` a propósito?
+1. Repasa tu target: ¿está **solo** `ec-client1` (o su grupo)? ¿Has excluido `ec-server`?
 2. Si la policy fuera «solo a las 3:00», ¿qué verías en Execution status durante la clase?
-3. Abre [mapa de opciones UI](../../docs/mapa-opciones-ui.md) y localiza **filter/exclude**: ¿para qué serviría excluir una OU de prueba?
+3. ¿Para qué serviría **Exclude** una OU de prueba aunque el target sea un Custom Group amplio?
 
 → **[M6-03 — Seguimiento de ejecución](03-seguimiento-ejecucion.md)**

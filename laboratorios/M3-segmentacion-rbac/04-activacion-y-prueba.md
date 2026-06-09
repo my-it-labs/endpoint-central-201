@@ -53,21 +53,23 @@ Recorre el menú y comprueba:
 
 ## Antes de seguir
 
-Has completado el ciclo **crear rol → crear usuario → activar → probar limitaciones**. Eso es RBAC operativo, no teoría.
+Has completado la parte de **delegación y RBAC**: rol → SMTP → usuario → activación → límites de **rol**.
+
+La segmentación por **grupo** (scope aplicado al parque) está en [Segmentación del parque](../M3-segmentacion-parque/README.md) — hazla antes de M4.
 
 ### Pon el foco en
 
 - Delegación = **rol + scope + activación segura** (correo, contraseña, opcionalmente 2FA).
-- Logueado como `tecnico1` el menú debe ser **visiblemente más pobre** que como admin.
-- Si `tecnico1` puede hacer algo que no debería, el fallo está en la matriz del rol, no en el usuario.
+- Con **All Computers**, `tecnico1` ve todo el parque pero solo **lee** (rol `lab-read`).
+- En el capítulo de grupos acotarás scope a **`Grupo-Clientes`** y verás inventario segmentado.
 
-### Reto (tómate tu tiempo)
+### Preguntas de cierre
 
 1. Enumera **tres diferencias** concretas entre admin y `tecnico1` (menús que desaparecen, botones deshabilitados…).
 2. Intenta llegar a **Admin → Add User** como `tecnico1`: ¿qué ocurre? ¿Es el comportamiento esperado?
 3. Cierra sesión del técnico y vuelve como admin. ¿Por qué no conviene dejar sesiones admin abiertas en puesto compartido?
-4. Reflexiona: ¿un auditor debería tener Write en Inventory o solo Read? Anótalo en tu cuaderno.
+4. ¿Un auditor debería tener Write en Inventory o solo Read?
 
-Cuando el contraste admin/técnico te resulte obvio, cierra M3.
+Cuando el contraste admin/técnico por **rol** te resulte obvio, continúa con grupos.
 
-→ **[M4 — Parches](../M4-parches/README.md)** — si aún no hay ejercicios publicados, continúa con **[M6 — Despliegue de software](../M6-software/README.md)** y vuelve a M4 después.
+→ **[Segmentación del parque (grupos)](../M3-segmentacion-parque/README.md)**

@@ -64,7 +64,7 @@ Has visto la diferencia clave: **lanzar acción** ≠ **ver inventario actualiza
 - Software, Computers y Hardware consumen el **mismo inventario** con distintos cortes.
 - En operación real no escaneas todo el parque cada minuto: escaneas cuando hace falta (post-instalación, auditoría, incidencia).
 
-### Reto (tómate tu tiempo)
+### Preguntas de cierre
 
 1. ¿Cambió la fecha de **Last scan** en `ec-client1`? Si no, espera un poco más y refresca — observa el retraso.
 2. ¿Por qué el inventario **no** cambia en el mismo segundo? Explica el flujo consola → agente → endpoint → vuelta de datos.
@@ -73,4 +73,4 @@ Has visto la diferencia clave: **lanzar acción** ≠ **ver inventario actualiza
 
 Cierra M2 cuando entiendas esa latencia; es un error muy común en operación.
 
-→ **[M3 — Segmentación y RBAC](../M3-segmentacion-rbac/README.md)**
+→ **[Delegación y RBAC](../M3-segmentacion-rbac/README.md)** · después **[Segmentación del parque](../M3-segmentacion-parque/README.md)**

@@ -72,8 +72,8 @@ Con servidor + agente OK: en VirtualBox crea la instantánea **`base-EC-instalad
 1. Abre el README del módulo (capítulo).
 2. Entra en `01-…md`, `02-…md`, etc. **en orden**.
 3. Ejecuta cada **Paso** en la consola.
-4. Compara tu pantalla con la **captura de referencia** del material.
-5. Al cerrar cada ejercicio, completa **Antes de seguir** (foco + retos).
+4. Revisa la **captura de referencia** del material.
+5. Al cerrar cada ejercicio, completa **Antes de seguir** (foco + preguntas de cierre).
 
 Más detalle: [Cómo usar este curso](docs/como-se-usa-el-curso.md).
 
@@ -86,7 +86,7 @@ Más detalle: [Cómo usar este curso](docs/como-se-usa-el-curso.md).
 | Levantar VMs (Vagrant en Windows) | [lab/](lab/) y [Guía Vagrant](docs/laboratorio-vagrant.md) |
 | Hardware y políticas IT | [Requisitos del laboratorio](docs/requisitos-alumno.md) |
 | Problemas habituales | [Checklist de incidencias](manual-alumno/checklist-incidencias-lab.md) |
-| Notas personales (opcional) | [Cuaderno del alumno](manual-alumno/cuaderno-lab-m1-m3.md) |
+| Notas personales (opcional) | [Cuaderno del alumno](manual-alumno/cuaderno-lab-m1-m7.md) |
 | Activación de usuarios (SMTP) | [SMTP de laboratorio](docs/smtp-laboratorio.md) |
 
 **Entorno de lab:** consola en `192.168.56.10` (`:8020` o `:8383`), equipos `ec-server` y `ec-client1`. Usa **Chrome o Edge** en tu Windows host.
@@ -99,7 +99,8 @@ Más detalle: [Cómo usar este curso](docs/como-se-usa-el-curso.md).
 |---|--------|-------|----------|
 | **M1** | Arquitectura y fundamentos | 3 h | [laboratorios/M1-arquitectura/](laboratorios/M1-arquitectura/README.md) |
 | **M2** | Inventario y organización | 4 h | [laboratorios/M2-inventario/](laboratorios/M2-inventario/README.md) |
-| **M3** | Segmentación y RBAC | 5 h | [laboratorios/M3-segmentacion-rbac/](laboratorios/M3-segmentacion-rbac/README.md) |
+| **M3** | Delegación y RBAC | 3 h | [laboratorios/M3-segmentacion-rbac/](laboratorios/M3-segmentacion-rbac/README.md) |
+| **M3** | Segmentación del parque (grupos) | 2 h | [laboratorios/M3-segmentacion-parque/](laboratorios/M3-segmentacion-parque/README.md) |
 | **M4** | Gestión avanzada de parches | 6 h | [laboratorios/M4-parches/](laboratorios/M4-parches/README.md) |
 | **M5** | Automatización operativa | 3 h | [laboratorios/M5-automatizacion/](laboratorios/M5-automatizacion/README.md) |
 | **M6** | Despliegue de software | 2 h | [laboratorios/M6-software/](laboratorios/M6-software/README.md) |

@@ -45,9 +45,9 @@ Vuelve a **Computers → ec-client1 → Hardware** (pestaña).
 - En auditoría suele pedirse RAM, disco, modelo — aquí lo obtienes sin ir equipo a equipo.
 - Discrepancias entre agregado y ficha suelen ser retraso de scan, no necesariamente error.
 
-### Reto (tómate tu tiempo)
+### Preguntas de cierre
 
-1. Anota mentalmente **un dato de hardware** de `ec-client1` (RAM, disco, CPU) que usarías en un ticket de soporte.
+1. Identifica **un dato de hardware** de `ec-client1` (RAM, disco, CPU) útil en un ticket de soporte.
 2. Filtra o busca «disk» / «RAM» en la vista agregada: ¿cuántas filas salen? ¿Tiene sentido para tu parque de 2 equipos?
 3. Imagina 500 equipos: ¿seguirías entrando uno a uno o usarías primero la vista Hardware agregada?
 

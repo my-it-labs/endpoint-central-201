@@ -71,7 +71,7 @@ Endpoint Central **no es solo consola web**: el alta de operadores depende de **
 - En lab usamos Mailpit/smtp4dev; en producción, SMTP corporativo con TLS y autenticación.
 - El enlace de activación debe ser **alcanzable** desde donde abra el correo el alumno (hostname vs IP, puerto 8020/8383).
 
-### Reto (tómate tu tiempo)
+### Preguntas de cierre
 
 1. Abre la bandeja Mailpit (`http://127.0.0.1:8025` si aplica): ¿llegó el correo de prueba? ¿Desde qué remitente?
 2. Si el enlace de activación usara `https://ec-server:8383/...` y tu PC no resuelve ese nombre, ¿qué cambiarías?

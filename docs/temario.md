@@ -55,14 +55,24 @@ Temas transversales en labs: agentes, organización, grupos dinámicos, scopes, 
 
 ## Módulo 3 — Segmentación, gobierno y RBAC (5 h)
 
-- Segmentación por departamentos y sedes
-- Grupos dinámicos y políticas diferenciadas
-- Scopes administrativos
-- RBAC y delegación de administración
-- Separación de responsabilidades operativas
-- Modelos enterprise de organización del parque
+### Delegación y RBAC (3 h)
 
-**Laboratorio:** [M3](../laboratorios/M3-segmentacion-rbac/README.md) (ejercicios 01–04).
+- RBAC y delegación de administración
+- Roles, SMTP, activación de operadores
+- Scope introducido (All Computers en lab)
+
+**Laboratorio:** [M3-segmentacion-rbac](../laboratorios/M3-segmentacion-rbac/README.md) (ejercicios 01–04).
+
+### Segmentación del parque (2 h)
+
+- Custom Groups y organización del parque
+- Scope en **Static Unique Group**
+- Inventario segmentado por operador
+- Puente a parches/despliegues (mismo grupo como target)
+
+**Laboratorio:** [M3-segmentacion-parque](../laboratorios/M3-segmentacion-parque/README.md) (ejercicios 01–02).
+
+Temas transversales M3: scopes administrativos, separación de responsabilidades, un solo EC con operadores segmentados.
 
 ---
 

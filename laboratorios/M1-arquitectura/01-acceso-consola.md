@@ -68,7 +68,7 @@ Has entrado en la consola. Eso ya es la base de todo el curso: desde aquí no «
 - El aviso de **certificado** es normal en trial/lab; en producción se sustituye por certificado válido.
 - **Getting Started** es un asistente de puesta en marcha; en formación el entorno ya viene preparado — puedes cerrarlo y usar el menú lateral.
 
-### Reto (tómate tu tiempo)
+### Preguntas de cierre
 
 1. ¿Cuántos **días de trial** te quedan? ¿Qué implicaría en un proyecto real si se agotara la licencia de evaluación?
 2. Recorre el **menú lateral** sin pulsar nada crítico: ¿qué módulos reconoces ya (Agent, Inventory, Admin…)?

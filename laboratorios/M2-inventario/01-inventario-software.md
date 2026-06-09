@@ -52,7 +52,7 @@ Esta vista responde: *«¿Tengo X software instalado y en cuántos equipos?»* �
 - La columna de **recuento de instalaciones** te dice si una app es común o solo está en un equipo.
 - Desde aquí ves el parque **por aplicación**; en el siguiente ejercicio lo verás **por equipo**.
 
-### Reto (tómate tu tiempo)
+### Preguntas de cierre
 
 1. Encuentra **una aplicación** que esté solo en `ec-client1` y **otra** que esté en ambos equipos (si existe). ¿Por qué podría estar solo en uno?
 2. Ordena o filtra por nombre: ¿aparece algún software que no esperabas? ¿Es basura, trial o herramienta del lab?
