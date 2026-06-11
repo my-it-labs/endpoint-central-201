@@ -95,6 +95,42 @@ resource "aws_network_acl" "lab" {
     to_port    = 8383
   }
 
+  ingress {
+    rule_no    = 113
+    protocol   = "tcp"
+    action     = "allow"
+    cidr_block = "0.0.0.0/0"
+    from_port  = 8027
+    to_port    = 8027
+  }
+
+  ingress {
+    rule_no    = 114
+    protocol   = "tcp"
+    action     = "allow"
+    cidr_block = "0.0.0.0/0"
+    from_port  = 8443
+    to_port    = 8443
+  }
+
+  ingress {
+    rule_no    = 115
+    protocol   = "udp"
+    action     = "allow"
+    cidr_block = "0.0.0.0/0"
+    from_port  = 8443
+    to_port    = 8443
+  }
+
+  ingress {
+    rule_no    = 116
+    protocol   = "tcp"
+    action     = "allow"
+    cidr_block = "0.0.0.0/0"
+    from_port  = 8444
+    to_port    = 8444
+  }
+
   # Bloquear tráfico hacia/desde otras subredes de la VPC (otros labs)
   ingress {
     rule_no    = 900
@@ -132,7 +168,7 @@ resource "aws_network_acl" "lab" {
 # Un security group por laboratorio: todo el tráfico entre VMs del mismo lab
 resource "aws_security_group" "lab" {
   name        = "${var.lab_name}-sg"
-  description = "Lab ${var.lab_name}: tráfico libre intra-lab + RDP público"
+  description = "Lab ${var.lab_name}: tráfico libre intra-lab + EC/RDP público"
   vpc_id      = var.vpc_id
 
   ingress {
@@ -147,6 +183,54 @@ resource "aws_security_group" "lab" {
     description = "RDP desde cualquier origen"
     from_port   = 3389
     to_port     = 3389
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    description = "Endpoint Central HTTP (consola + agente)"
+    from_port   = 8020
+    to_port     = 8020
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    description = "Endpoint Central HTTPS (consola + agente)"
+    from_port   = 8383
+    to_port     = 8383
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    description = "Endpoint Central notification server"
+    from_port   = 8027
+    to_port     = 8027
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    description = "Endpoint Central remote control (SSL)"
+    from_port   = 8443
+    to_port     = 8443
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    description = "Endpoint Central remote control (SSL, UDP)"
+    from_port   = 8443
+    to_port     = 8443
+    protocol    = "udp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    description = "Endpoint Central remote control / Tools"
+    from_port   = 8444
+    to_port     = 8444
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }

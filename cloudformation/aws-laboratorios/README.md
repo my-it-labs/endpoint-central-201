@@ -18,7 +18,7 @@ Subred por lab: `10.0.<index>.0/24`.
 |------|----------------|
 | **Subred + route table** | Una RT por lab → salida a Internet vía IGW |
 | **NACL** | Deniega tráfico hacia/desde el resto del CIDR de la VPC (otros labs) |
-| **Security group** | Un SG por lab: todo el tráfico entre instancias del mismo SG + RDP `:3389` desde `0.0.0.0/0` |
+| **Security group** | Un SG por lab: todo el tráfico entre instancias del mismo SG + desde Internet: RDP `3389` y puertos EC `8020`, `8383`, `8027`, `8443` (TCP/UDP), `8444` |
 
 ## Estructura
 

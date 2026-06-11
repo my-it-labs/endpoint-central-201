@@ -184,6 +184,58 @@ Resources:
         From: 8383
         To: 8383
 
+  NaclIngressEcNotification:
+    Type: AWS::EC2::NetworkAclEntry
+    Properties:
+      NetworkAclId: !Ref LabNetworkAcl
+      RuleNumber: 113
+      Protocol: 6
+      RuleAction: allow
+      Egress: false
+      CidrBlock: 0.0.0.0/0
+      PortRange:
+        From: 8027
+        To: 8027
+
+  NaclIngressEcRemoteControlSslTcp:
+    Type: AWS::EC2::NetworkAclEntry
+    Properties:
+      NetworkAclId: !Ref LabNetworkAcl
+      RuleNumber: 114
+      Protocol: 6
+      RuleAction: allow
+      Egress: false
+      CidrBlock: 0.0.0.0/0
+      PortRange:
+        From: 8443
+        To: 8443
+
+  NaclIngressEcRemoteControlSslUdp:
+    Type: AWS::EC2::NetworkAclEntry
+    Properties:
+      NetworkAclId: !Ref LabNetworkAcl
+      RuleNumber: 115
+      Protocol: 17
+      RuleAction: allow
+      Egress: false
+      CidrBlock: 0.0.0.0/0
+      PortRange:
+        From: 8443
+        To: 8443
+
+  NaclIngressEcRemoteControl:
+    Type: AWS::EC2::NetworkAclEntry
+    Properties:
+      NetworkAclId: !Ref LabNetworkAcl
+      RuleNumber: 116
+      Protocol: 6
+      RuleAction: allow
+      Egress: false
+      CidrBlock: 0.0.0.0/0
+      PortRange:
+        From: 8444
+        To: 8444
+
   # Denegar otras subredes de la VPC (otros labs)
   NaclIngressDenyVpc:
     Type: AWS::EC2::NetworkAclEntry
@@ -218,7 +270,7 @@ Resources:
   LabSecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
-      GroupDescription: !Sub "Lab ${LabName}: tráfico libre intra-lab + RDP público"
+      GroupDescription: !Sub "Lab ${LabName}: tráfico libre intra-lab + EC/RDP público"
       GroupName: !Sub "${LabName}-sg"
       VpcId: !Ref VpcId
       SecurityGroupEgress:
@@ -252,6 +304,66 @@ Resources:
       ToPort: 3389
       CidrIp: 0.0.0.0/0
       Description: RDP desde cualquier origen
+
+  LabSecurityGroupEc8020Ingress:
+    Type: AWS::EC2::SecurityGroupIngress
+    Properties:
+      GroupId: !Ref LabSecurityGroup
+      IpProtocol: tcp
+      FromPort: 8020
+      ToPort: 8020
+      CidrIp: 0.0.0.0/0
+      Description: Endpoint Central HTTP
+
+  LabSecurityGroupEc8383Ingress:
+    Type: AWS::EC2::SecurityGroupIngress
+    Properties:
+      GroupId: !Ref LabSecurityGroup
+      IpProtocol: tcp
+      FromPort: 8383
+      ToPort: 8383
+      CidrIp: 0.0.0.0/0
+      Description: Endpoint Central HTTPS
+
+  LabSecurityGroupEc8027Ingress:
+    Type: AWS::EC2::SecurityGroupIngress
+    Properties:
+      GroupId: !Ref LabSecurityGroup
+      IpProtocol: tcp
+      FromPort: 8027
+      ToPort: 8027
+      CidrIp: 0.0.0.0/0
+      Description: Endpoint Central notification server
+
+  LabSecurityGroupEc8443TcpIngress:
+    Type: AWS::EC2::SecurityGroupIngress
+    Properties:
+      GroupId: !Ref LabSecurityGroup
+      IpProtocol: tcp
+      FromPort: 8443
+      ToPort: 8443
+      CidrIp: 0.0.0.0/0
+      Description: Endpoint Central remote control SSL
+
+  LabSecurityGroupEc8443UdpIngress:
+    Type: AWS::EC2::SecurityGroupIngress
+    Properties:
+      GroupId: !Ref LabSecurityGroup
+      IpProtocol: udp
+      FromPort: 8443
+      ToPort: 8443
+      CidrIp: 0.0.0.0/0
+      Description: Endpoint Central remote control SSL UDP
+
+  LabSecurityGroupEc8444Ingress:
+    Type: AWS::EC2::SecurityGroupIngress
+    Properties:
+      GroupId: !Ref LabSecurityGroup
+      IpProtocol: tcp
+      FromPort: 8444
+      ToPort: 8444
+      CidrIp: 0.0.0.0/0
+      Description: Endpoint Central remote control Tools
 
   EcServer:
     Type: AWS::EC2::Instance
