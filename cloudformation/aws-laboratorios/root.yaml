@@ -1,0 +1,171 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::LanguageExtensions
+Description: >
+  VPC compartida + N laboratorios Endpoint Central (stacks anidados).
+  Una sola VPC para evitar el límite de 5 VPCs por cuenta.
+
+Parameters:
+  VpcCidr:
+    Type: String
+    Default: 10.0.0.0/16
+
+  KeyName:
+    Type: AWS::EC2::KeyPair::KeyName
+
+  AmiServer:
+    Type: AWS::EC2::Image::Id
+    Description: Windows Server 2022 (licencia incluida)
+
+  AmiClient:
+    Type: AWS::EC2::Image::Id
+    Description: Windows 10/11 cliente
+
+  InstanceTypeServer:
+    Type: String
+    Default: t3.large
+
+  InstanceTypeClient:
+    Type: String
+    Default: t3.medium
+
+  RootVolumeServerGb:
+    Type: Number
+    Default: 80
+
+  RootVolumeClientGb:
+    Type: Number
+    Default: 60
+
+  LabIndexes:
+    Type: CommaDelimitedList
+    Description: Índices de subred (10.0.<index>.0/24). Un stack anidado por índice.
+    Default: "1,2,10"
+
+  LabTemplateUrl:
+    Type: String
+    Description: URL S3 del template lab.yaml (generada con aws cloudformation package)
+
+  ProjectTag:
+    Type: String
+    Default: endpoint-central
+
+  EnvTag:
+    Type: String
+    Default: lab
+
+Mappings:
+  LabNamesByIndex:
+    "1":
+      Name: lab-01
+    "2":
+      Name: lab-02
+    "10":
+      Name: piloto
+
+Resources:
+  LaboratoriosVpc:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: !Ref VpcCidr
+      EnableDnsHostnames: true
+      EnableDnsSupport: true
+      Tags:
+        - Key: Name
+          Value: endpoint-central-laboratorios
+        - Key: Project
+          Value: !Ref ProjectTag
+        - Key: Env
+          Value: !Ref EnvTag
+
+  LaboratoriosInternetGateway:
+    Type: AWS::EC2::InternetGateway
+    Properties:
+      Tags:
+        - Key: Name
+          Value: endpoint-central-laboratorios-igw
+        - Key: Project
+          Value: !Ref ProjectTag
+        - Key: Env
+          Value: !Ref EnvTag
+
+  LaboratoriosVpcGatewayAttachment:
+    Type: AWS::EC2::VPCGatewayAttachment
+    Properties:
+      VpcId: !Ref LaboratoriosVpc
+      InternetGatewayId: !Ref LaboratoriosInternetGateway
+
+  "Fn::ForEach::LabStacks":
+    - LabIndex
+    - !Ref LabIndexes
+    - "Lab${LabIndex}":
+        Type: AWS::CloudFormation::Stack
+        DependsOn: LaboratoriosVpcGatewayAttachment
+        Properties:
+          TemplateURL: !Ref LabTemplateUrl
+          Parameters:
+            LabName: !FindInMap [LabNamesByIndex, !Ref LabIndex, Name]
+            LabIndex: !Ref LabIndex
+            VpcId: !Ref LaboratoriosVpc
+            VpcCidr: !Ref VpcCidr
+            InternetGatewayId: !Ref LaboratoriosInternetGateway
+            AmiServer: !Ref AmiServer
+            AmiClient: !Ref AmiClient
+            InstanceTypeServer: !Ref InstanceTypeServer
+            InstanceTypeClient: !Ref InstanceTypeClient
+            RootVolumeServerGb: !Ref RootVolumeServerGb
+            RootVolumeClientGb: !Ref RootVolumeClientGb
+            KeyName: !Ref KeyName
+            ProjectTag: !Ref ProjectTag
+            EnvTag: !Ref EnvTag
+          Tags:
+            - Key: Lab
+              Value: !FindInMap [LabNamesByIndex, !Ref LabIndex, Name]
+            - Key: Project
+              Value: !Ref ProjectTag
+            - Key: Env
+              Value: !Ref EnvTag
+
+Outputs:
+  VpcId:
+    Value: !Ref LaboratoriosVpc
+    Export:
+      Name: !Sub "${AWS::StackName}-VpcId"
+
+  InternetGatewayId:
+    Value: !Ref LaboratoriosInternetGateway
+
+  "Fn::ForEach::LabOutputs":
+    - LabIndex
+    - !Ref LabIndexes
+    - "Lab${LabIndex}Summary":
+        Description: !Sub "Lab índice ${LabIndex}"
+        Value: !Sub
+          - |
+            name=${LabName}
+            subnet=${SubnetCidr}
+            server_public=${ServerPublicIp} server_private=${ServerPrivateIp}
+            client1_public=${Client1PublicIp} client1_private=${Client1PrivateIp}
+            client2_public=${Client2PublicIp} client2_private=${Client2PrivateIp}
+            ec_console=http://${ServerPublicIp}:8020
+          - LabName: !FindInMap [LabNamesByIndex, !Ref LabIndex, Name]
+            SubnetCidr: !GetAtt
+              - !Sub "Lab${LabIndex}"
+              - Outputs.SubnetCidr
+            ServerPublicIp: !GetAtt
+              - !Sub "Lab${LabIndex}"
+              - Outputs.EcServerPublicIp
+            ServerPrivateIp: !GetAtt
+              - !Sub "Lab${LabIndex}"
+              - Outputs.EcServerPrivateIp
+            Client1PublicIp: !GetAtt
+              - !Sub "Lab${LabIndex}"
+              - Outputs.EcClient1PublicIp
+            Client1PrivateIp: !GetAtt
+              - !Sub "Lab${LabIndex}"
+              - Outputs.EcClient1PrivateIp
+            Client2PublicIp: !GetAtt
+              - !Sub "Lab${LabIndex}"
+              - Outputs.EcClient2PublicIp
+            Client2PrivateIp: !GetAtt
+              - !Sub "Lab${LabIndex}"
+              - Outputs.EcClient2PrivateIp

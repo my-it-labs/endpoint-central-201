@@ -1,0 +1,17 @@
+aws_region = "eu-west-1"
+key_name   = "mi-keypair-lab"
+
+# AMIs Windows en tu región (consola EC2 → AMIs → Windows)
+ami_server = "ami-xxxxxxxxxxxxxxxxx" # Windows Server 2022 English Full Base
+ami_client = "ami-yyyyyyyyyyyyyyyyy" # Windows 10/11
+
+labs = {
+  "lab-01" = { index = 1 } # subred 10.0.1.0/24
+  "lab-02" = { index = 2 } # subred 10.0.2.0/24
+  "piloto" = { index = 10 } # subred 10.0.10.0/24
+}
+
+tags = {
+  Project = "endpoint-central"
+  Env     = "lab"
+}

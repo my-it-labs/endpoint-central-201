@@ -1,0 +1,22 @@
+[
+  {
+    "ParameterKey": "KeyName",
+    "ParameterValue": "mi-keypair-lab"
+  },
+  {
+    "ParameterKey": "AmiServer",
+    "ParameterValue": "ami-xxxxxxxxxxxxxxxxx"
+  },
+  {
+    "ParameterKey": "AmiClient",
+    "ParameterValue": "ami-yyyyyyyyyyyyyyyyy"
+  },
+  {
+    "ParameterKey": "LabIndexes",
+    "ParameterValue": "1,2,10"
+  },
+  {
+    "ParameterKey": "LabTemplateUrl",
+    "ParameterValue": "https://mi-bucket.s3.eu-west-1.amazonaws.com/cf/endpoint-central/lab.yaml"
+  }
+]

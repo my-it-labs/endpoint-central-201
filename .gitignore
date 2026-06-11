@@ -8,4 +8,13 @@ material-formador/
 
 # Tratamiento local del agente (legacy)
 .agent/
+
+# Terraform
+**/.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+!*.tfvars.example
+.terraform.lock.hcl
+crash.log
 _tmp-client-profile/
